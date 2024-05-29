@@ -1,1 +1,25 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Antonio", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+.login{
+    font-size: 40px;
+}
+
+.bg-image{
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size:contain;
+}
+
+.ingrandire-link{
+    font-size: 24px;
+}

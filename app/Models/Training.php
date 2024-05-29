@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Training extends Model
 {
     use HasFactory;
+
+    protected $fillable =['title', 'duration_weeks', 'slug', 'user_id'];
+
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
 }

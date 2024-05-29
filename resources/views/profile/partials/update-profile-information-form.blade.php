@@ -26,6 +26,15 @@
             </span>
             @enderror
         </div>
+        <div class="mb-2">
+            <label for="surname">{{__('Surname')}}</label>
+            <input class="form-control" type="text" name="surname" id="surname" autocomplete="surname" value="{{old('surname', $user->surname)}}" required autofocus>
+            @error('surname')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->get('surname')}}</strong>
+            </span>
+            @enderror
+        </div>
 
         <div class="mb-2">
             <label for="email">

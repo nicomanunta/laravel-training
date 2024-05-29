@@ -15,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('title', 150)->nullable();
+            $table->smallInteger('duration_weeks')->unsigned()->nullable();
+            $table->string('slug', 200)->unique();
             $table->timestamps();
+
         });
     }
 
