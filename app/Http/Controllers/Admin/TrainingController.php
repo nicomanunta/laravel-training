@@ -6,8 +6,11 @@ use App\Http\Requests\StoreTrainingRequest;
 use App\Http\Requests\UpdateTrainingRequest;
 use App\Models\Training;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 use App\Models\User;
+use App\Models\Program;
+
 
 
 class TrainingController extends Controller
@@ -44,7 +47,25 @@ class TrainingController extends Controller
      */
     public function store(StoreTrainingRequest $request)
     {
-        //
+        $form_data = $request->all();
+        $training = new Training();
+        $slug = Str::slug($form_data['name'], '-');
+        $form_data['slug'] = $slug;
+        $training->fill($form_data);
+
+        $training->save();
+
+        foreach ($form_data['programs'] as $program_data) {
+            $program = new Program();
+            $program->week_number = $program_data['week_number'];
+            $program->day_of_week = $program_data['day_of_week'];
+            $program->description = $program_data['description'];
+            $training->programs()->save($program); // Collega il programma al piano di allenamento
+        }
+    
+        
+
+        return redirect()->route('admin.trainings.index');
     }
 
     /**

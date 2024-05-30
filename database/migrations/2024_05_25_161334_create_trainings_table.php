@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('title', 150)->nullable();
             $table->smallInteger('duration_weeks')->unsigned()->nullable();
             $table->string('slug', 200)->unique();
+            $table->text('notes')->nullable();
             $table->timestamps();
 
         });

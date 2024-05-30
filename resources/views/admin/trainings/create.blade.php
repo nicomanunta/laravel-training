@@ -23,7 +23,7 @@
                             <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
-                    <div class="form-group mb-3">
+                    {{-- <div class="form-group mb-3">
                         <label for="date">Data</label>
                         <input type="date" class="form-control" name="date" id="date" placeholder="Date">
                         @error('date')
@@ -50,7 +50,7 @@
                         @error('github_url')
                             <div class="text-danger">{{$message}}</div>
                         @enderror
-                    </div>
+                    </div> --}}
                     {{-- tecnologie --}}
                     <div class="form-group mb-3">
                         <label class="control-label">Tecnologia</label>
@@ -74,6 +74,7 @@
                     </div>
 
                 </form>
+                
             </div>
         </div>
     </div>

@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreProgramRequest;
 use App\Http\Requests\UpdateProgramRequest;
-use App\Models\Program;
+use App\Models\Program; 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
+
+use App\Models\Training;
 
 class ProgramController extends Controller
 {
@@ -15,7 +19,10 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        //
+        $programs = Program::all();
+
+        return view('admin.trainings.index', compact('trainings'));
+
     }
 
     /**
@@ -25,7 +32,9 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        //
+        $user = User::all();
+
+        return view('admin.trainings.create', compact('users'));
     }
 
     /**
@@ -36,7 +45,7 @@ class ProgramController extends Controller
      */
     public function store(StoreProgramRequest $request)
     {
-        //
+   
     }
 
     /**
