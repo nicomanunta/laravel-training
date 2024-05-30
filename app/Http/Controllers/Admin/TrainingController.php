@@ -20,6 +20,7 @@ class TrainingController extends Controller
     public function index()
     {
         $trainings = Training::all();
+       
         return view('admin.trainings.index', compact('trainings'));
     }
 

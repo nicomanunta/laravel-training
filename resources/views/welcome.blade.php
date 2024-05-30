@@ -23,7 +23,7 @@
                     
             
                     <div class="" aria-labelledby="">
-                        <a class="nav-link ingrandire-link" href="{{ url('homepage') }}">{{__('Home')}}</a>
+                        <a class="nav-link ingrandire-link" href="{{ url('trainings') }}">{{__('Home')}}</a>
                         <a class="nav-link ingrandire-link" href="{{ url('profile') }}">{{__('Modifica dati profilo')}}</a>
                         <a class="nav-link ingrandire-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

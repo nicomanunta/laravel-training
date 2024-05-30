@@ -8,8 +8,5 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index(){
-        $user = User::first();
-        return view('admin.users.dashboard', compact('user'));
-    }
+   
 }

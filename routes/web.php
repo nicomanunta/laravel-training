@@ -27,9 +27,9 @@ Route::get('/homepage', function () {
 
 
 Route::middleware(['auth', 'verified'])->name('admin.')->group(function () {
-    
     Route::resource('trainings', TrainingController::class);
 });
+
 
 
 
