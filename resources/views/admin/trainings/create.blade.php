@@ -4,73 +4,79 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-center my-4">Aggiungi un nuovo allenamento</h2>
+                <h2 class="text-center my-4">Crea un nuovo allenamento</h2>
             </div>
             <div class="col-12">
                 <form action="{{route('admin.trainings.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
+
+                    {{-- CAMPI TABELLA TRAININGS --}}
                     <div class="form-group mb-3">
                         <label for="title">Dai un titolo al tuo allenamento</label>
-                        <input type="text" class="form-control" name="title" id="title" placeholder="Allenamento">
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Allenamento" value="{{ old('title') }}">
                         @error('title')
                             <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
                     <div class="form-group mb-3">
                         <label for="duration_weeks">Quante settimane dura?</label>
-                        <input type="number" class="form-control" name="duration_weeks" id="duration_weeks" placeholder="Numero delle settimane">
+                        <input type="number" class="form-control" name="duration_weeks" id="duration_weeks" placeholder="Numero delle settimane" value="{{ old('duration_weeks') }}">
                         @error('duration_weeks')
                             <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
-                    {{-- <div class="form-group mb-3">
-                        <label for="date">Data</label>
-                        <input type="date" class="form-control" name="date" id="date" placeholder="Date">
-                        @error('date')
-                            <div class="text-danger">{{$message}}</div> 
+                    <div class="form-group">
+                        <label for="notes">Note</label>
+                        <textarea name="notes" id="notes" class="form-control">{{ old('notes') }}</textarea>
+                        @error('notes')
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="cover_img">Immagine copertina</label>
-                        <input type="file" class="form-control" name="cover_img" id="cover_img" placeholder="">
-                        @error('cover_img')
-                            <div class="text-danger">{{$message}}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="">Immagini di Galleria</label>
-                        <input type="file" class="form-control" name="gallery_img[]" id="cover_img" placeholder="" multiple>
-                        @error('cover_img')
-                            <div class="text-danger">{{$message}}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="github_url">Link GitHub</label>
-                        <input type="text" class="form-control" name="github_url" id="github_url" placeholder="Link GitHub">
-                        @error('github_url')
-                            <div class="text-danger">{{$message}}</div>
-                        @enderror
-                    </div> --}}
-                    {{-- tecnologie --}}
-                    <div class="form-group mb-3">
-                        <label class="control-label">Tecnologia</label>
-                        <div>
-                            {{-- @foreach ($technologies as $technology)
-                                <div class="form-check-inline">
-                                    <input type="checkbox" name="technologies[]" id="technology-{{$technology->id}}" class="form-check-input" value="{{$technology->id}}" @checked(is_array(old('technologies')) && in_array($technology->id, old('technologies')))>
-                                    <label class="form-check-label">{{$technology->name}}</label>                                   
-                                </div>
-                            @endforeach --}}
-                        </div>
-                        {{-- @error('type_id')
-                            <div class="text-danger">{{$message}}</div> 
-                        @enderror --}}
                     </div>
 
+                    {{-- CAMPI TABELLA PROGRAMS --}}
+
+                    <h3 class="mt-5 mb-3">Programmi giornalieri</h3>
+                    <div id="programs-container">
+                        <div class="program">
+                            <div class="form-group mb-3">
+                                <label for="programs[0][week_number]">Numero della settimana</label>
+                                <input type="number" name="programs[0][week_number]" class="form-control" value="{{ old('programs[0][week_number]') }}" required>
+                                @error('programs[0][week_number]')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="programs[0][day_of_week]">Giorno della settimana</label>
+                                <select name="programs[0][day_of_week]" class="form-control" required>
+                                    <option value="">Seleziona un giorno</option>
+                                    <option value="Lunedì">Lunedì</option>
+                                    <option value="Martedì">Martedì</option>
+                                    <option value="Mercoledì">Mercoledì</option>
+                                    <option value="Giovedì">Giovedì</option>
+                                    <option value="Venerdì">Venerdì</option>
+                                    <option value="Sabato">Sabato</option>
+                                    <option value="Domenica">Domenica</option>
+                                </select>
+                                @error('programs[0][day_of_week]')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group mb-5">
+                                <label for="programs[0][description]">Descrizione</label>
+                                <textarea name="programs[0][description]" class="form-control">{{ old('programs[0][description]') }}</textarea>
+                                @error('programs[0][description]')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
                     
                     
-                    <div class="form-group mb-3">
-                        <button type="submit" class="btn btn-secondary">Salva</button>
+                    <div class="form-group mb-5">
+                        <button type="button" id="add-program-button" class="btn btn-secondary">Aggiungi Programma</button>
+                        <button type="submit" class="btn btn-primary">Salva Allenamento</button>
                     </div>
 
                 </form>
@@ -78,4 +84,55 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let programIndex = 1;
+        
+            document.getElementById('add-program-button').addEventListener('click', function () {
+                let programsContainer = document.getElementById('programs-container');
+        
+                let newProgram = document.createElement('div');
+                newProgram.classList.add('program');
+                newProgram.innerHTML = `
+                
+                    <div class="form-group mb-3">
+                        <label for="programs[${programIndex}][week_number]">Numero della settimana</label>
+                        <input type="number" name="programs[${programIndex}][week_number]" class="form-control" required>
+                        @error('programs[${programIndex}][week_number]')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+        
+                    <div class="form-group mb-3">
+                        <label for="programs[${programIndex}][day_of_week]">Giorno della settimana</label>
+                        <select name="programs[${programIndex}][day_of_week]" class="form-control" required>
+                            <option value="">Seleziona un giorno</option>
+                            <option value="Lunedì">Lunedì</option>
+                            <option value="Martedì">Martedì</option>
+                            <option value="Mercoledì">Mercoledì</option>
+                            <option value="Giovedì">Giovedì</option>
+                            <option value="Venerdì">Venerdì</option>
+                            <option value="Sabato">Sabato</option>
+                            <option value="Domenica">Domenica</option>
+                        </select>
+                        @error('programs[${programIndex}][day_of_week]')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+        
+                    <div class="form-group mb-5">
+                        <label for="programs[${programIndex}][description]">Descrizione</label>
+                        <textarea name="programs[${programIndex}][description]" class="form-control"></textarea>
+                        @error('programs[${programIndex}][description]')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                `;
+        
+                programsContainer.appendChild(newProgram);
+                programIndex++;
+            });
+        });
+        </script>
 @endsection

@@ -15,6 +15,7 @@ use App\Models\Program;
 
 class TrainingController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -49,8 +50,9 @@ class TrainingController extends Controller
     {
         $form_data = $request->all();
         $training = new Training();
-        $slug = Str::slug($form_data['name'], '-');
+        $slug = Str::slug($form_data['title'], '-');
         $form_data['slug'] = $slug;
+        $training->user_id = auth()->user()->id;
         $training->fill($form_data);
 
         $training->save();
