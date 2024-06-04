@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <label for="notes">Note</label>
-                        <textarea name="notes" id="notes" class="form-control">{{ old('notes') }}</textarea>
+                        <textarea wrap="soft" name="notes" id="notes" class="form-control">{{ old('notes') }}</textarea>
                         @error('notes')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -123,7 +123,7 @@
         
                     <div class="form-group mb-5">
                         <label for="programs[${programIndex}][description]">Descrizione</label>
-                        <textarea name="programs[${programIndex}][description]" class="form-control"></textarea>
+                        <textarea wrap="soft" name="programs[${programIndex}][description]" class="form-control"></textarea>
                         @error('programs[${programIndex}][description]')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

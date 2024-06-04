@@ -37,18 +37,18 @@
     }
 }
 .width-link-logo{
-    width: 11%;
+    width: 15%;
 }
 
 .bg-orange{
     background-color: #f14902;
 }
-.card-body{
+.card-training{
     background-color: #1e1e1e;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-.card-title, .card-text{
+.title-training, .text-training{
     color: #f6e7d8;
 }
 .card-img-top{
@@ -56,7 +56,7 @@
     border-top-right-radius: 10px;
 }
 
-.card{
+.cards{
     border: 2px solid #f14902;
     border-radius: 12px;
     &:hover{
@@ -65,7 +65,7 @@
 }
 
 h1{
-    color: #f6e7d8;
+    
     font-size: 60px;
 }
 
@@ -81,3 +81,24 @@ h1{
         color: #1e1e1e;
     }
 }
+.edit-button{
+    padding: 7px 11px;
+    background-color: #f6e7d8;
+    color: #1e1e1e;
+    border: 2px solid black ;
+    border-radius: 8px;
+    &:hover{
+        border: 2px solid black;
+        background-color: #f14902;
+        color: #1e1e1e;
+    }
+}
+
+.color-text{
+    color: #f6e7d8;
+}
+
+.durata{
+    font-size: 45px;
+}
+

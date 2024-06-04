@@ -78,7 +78,7 @@ class TrainingController extends Controller
      */
     public function show(Training $training)
     {
-        //
+        return view('admin.trainings.show', compact('training'));
     }
 
     /**
@@ -89,7 +89,8 @@ class TrainingController extends Controller
      */
     public function edit(Training $training)
     {
-        //
+        $users = User::all();
+        return view('admin.trainings.edit', compact('training', 'users'));
     }
 
     /**
@@ -101,8 +102,23 @@ class TrainingController extends Controller
      */
     public function update(UpdateTrainingRequest $request, Training $training)
     {
-        //
-    }
+        $form_data = $request->all();
+        $slug = Str::slug($form_data['title'], '-');
+        $form_data['slug'] = $slug;
+        $training->update($form_data);
+
+        // Aggiornamento dei programmi associati
+        $training->programs()->delete(); // Elimina i vecchi programmi
+        foreach ($form_data['programs'] as $program_data) {
+            $program = new Program();
+            $program->week_number = $program_data['week_number'];
+            $program->day_of_week = $program_data['day_of_week'];
+            $program->description = $program_data['description'];
+            $training->programs()->save($program); // Collega il programma al training
+        }
+
+        return redirect()->route('admin.trainings.index');
+        }
 
     /**
      * Remove the specified resource from storage.
