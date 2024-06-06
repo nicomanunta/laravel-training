@@ -78,7 +78,8 @@ class TrainingController extends Controller
      */
     public function show(Training $training)
     {
-        return view('admin.trainings.show', compact('training'));
+        $programs = $training->programs;
+        return view('admin.trainings.show', compact('training', 'programs'));
     }
 
     /**

@@ -94,11 +94,30 @@ h1{
     }
 }
 
-.color-text{
+
+// COLORI
+.color-white{
     color: #f6e7d8;
 }
+.color-orange{
+    color:#f14902
+}
+.color-black{
+    color:#1e1e1e
+}
+
 
 .durata{
     font-size: 45px;
 }
 
+
+.col7{
+    width: calc(100% / 7);
+}
+.position-top{
+    top: 50px;
+}
+.card-day{
+    background-color: #f6e7d8;
+}

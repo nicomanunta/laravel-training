@@ -5,11 +5,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mt-3">
-                <h1 class="text-uppercase text-center color-text">i tuoi allenamenti</h1>
+                <h1 class="text-uppercase text-center color-white">i tuoi allenamenti</h1>
                 <a href="{{route('admin.trainings.create')}}"><button class="create-button ">Nuovo Allenamento</button></a>
             </div>
             @foreach ($trainings as $training)
-                <div class="col-12 mb-5">
+                <div class="col-3 mb-5">
                     <a href="{{ route('admin.trainings.show', ['training'=>$training->id])}}">
 
                         <div class="card cards mt-5" style="width: 18rem;">
