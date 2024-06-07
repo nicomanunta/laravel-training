@@ -1,12 +1,9 @@
-<section>
-    <header>
-        <h2 class="text-secondary">
-            {{ __('Profile Information') }}
+<section class="">
+    <header class="mb-4">
+        <h2 class="color-orange">
+            {{ __('Informazioni Profilo') }}
         </h2>
 
-        <p class="mt-1 text-muted">
-            {{ __("Update your account's profile information and email address.") }}
-        </p>
     </header>
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
@@ -17,8 +14,8 @@
         @csrf
         @method('patch')
 
-        <div class="mb-2">
-            <label for="name">{{__('Name')}}</label>
+        <div class="mb-3">
+            <label class="mb-2 color-black" for="name">{{__('Nome')}}</label>
             <input class="form-control" type="text" name="name" id="name" autocomplete="name" value="{{old('name', $user->name)}}" required autofocus>
             @error('name')
             <span class="invalid-feedback" role="alert">
@@ -26,8 +23,8 @@
             </span>
             @enderror
         </div>
-        <div class="mb-2">
-            <label for="surname">{{__('Surname')}}</label>
+        <div class="mb-3">
+            <label class="mb-2 color-black" for="surname">{{__('Cognome')}}</label>
             <input class="form-control" type="text" name="surname" id="surname" autocomplete="surname" value="{{old('surname', $user->surname)}}" required autofocus>
             @error('surname')
             <span class="invalid-feedback" role="alert">
@@ -36,8 +33,8 @@
             @enderror
         </div>
 
-        <div class="mb-2">
-            <label for="email">
+        <div class="mb-3">
+            <label class="mb-2 color-black" for="email">
                 {{__('Email') }}
             </label>
 
@@ -68,8 +65,8 @@
             @endif
         </div>
 
-        <div class="d-flex align-items-center gap-4">
-            <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
+        <div class="mt-3 d-flex align-items-center gap-4">
+            <button class="btn salva-button " type="submit">{{ __('Salva') }}</button>
 
             @if (session('status') === 'profile-updated')
             <script>
@@ -80,7 +77,7 @@
                     el.style.display = 'block';
                 }
             </script>
-            <p id='profile-status' class="fs-5 text-muted">{{ __('Saved.') }}</p>
+            <p id='profile-status' class="fs-5 text-muted">{{ __('Salvato.') }}</p>
             @endif
         </div>
     </form>

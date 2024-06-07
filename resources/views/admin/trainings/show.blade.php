@@ -1,11 +1,17 @@
 @extends('layouts.style')
 
 @section('content')
-<div class="pt-4 bg-logo pb-5">
+<div class="height-minima pt-4 bg-logo pb-5">
     <div class="container">
         <div class="position-relative">
             <h1 class="text-center color-orange text-uppercase">{{$training->title}}</h1>
-            <a class="position-absolute position-top" href="{{route('admin.trainings.edit', ['training'=>$training->id])}}"><button class="edit-button">Modifica</button></a>
+            <div class="position-absolute position-top">
+                <a class=" " href="{{route('admin.trainings.index')}}"><button class="edit-button">Home</button></a>
+                <a class=" " href="{{route('admin.trainings.edit', ['training'=>$training->id])}}"><button class="edit-button">Modifica</button></a>
+                <button class="ms-1 edit-button " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $training->id }}">Elimina</button>
+                @include('admin.trainings.partials.modal_delete')
+
+            </div>
 
         </div>
         <h2 class="durata text-center color-white text-uppercase">
@@ -28,7 +34,7 @@
                         </div> <!-- Chiude la riga precedente se non è la prima iterazione -->
                     @endif
                         <div class="col-6">
-                            <div class="row mb-5 mt-5 "> <!-- Apre una nuova riga per la nuova settimana -->
+                            <div class="row mb-3 mt-5 "> <!-- Apre una nuova riga per la nuova settimana -->
                                 <div class="col-12">
                                     <h3 class="color-orange mb-3">Settimana {{$program->week_number}}</h3> <!-- Stampa il numero della settimana -->
                                 </div>

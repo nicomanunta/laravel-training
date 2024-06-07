@@ -32,6 +32,7 @@
 }
 .color{
     color: #f6e7d8;
+    font-size: 20px;
     &:hover{
         color: #f14902;
     }
@@ -66,7 +67,7 @@
 
 h1{
     
-    font-size: 60px;
+    font-size: 70px;
 }
 
 .create-button{
@@ -105,6 +106,15 @@ h1{
 .color-black{
     color:#1e1e1e
 }
+.bg-color-white{
+    background-color: #f6e7d8;
+}
+.bg-color-orange{
+    background-color:#f14902
+}
+.bg-color-black{
+    background-color:#1e1e1e
+}
 
 
 .durata{
@@ -124,3 +134,74 @@ h1{
 .font-description{
     font-size: 18px;
 }
+.height-minima{
+    min-height: 100vh;
+}
+.bg-modal{
+    background-color: #f6e7d8;
+}
+.btn-modal-chiudi{
+    background-color: #1e1e1e;
+    color:#f6e7d8;
+    &:hover{
+        background-color: #1e1e1e;
+        color: #f14902;
+    }
+}
+.btn-modal-elimina{
+    background-color: #f14902;
+    color: #1e1e1e;
+    &:hover{
+        background-color: #f14902;
+        color:#f6e7d8;
+    }
+}
+.fa-trash-can{
+    font-size: 20px;
+    
+}
+
+
+.salva-button{
+    padding: 10px 15px;
+    background-color: #1e1e1e;
+    color: #f6e7d8;
+    border: 2px solid black ;
+    border-radius: 8px;
+    &:hover{
+        border: 2px solid #f14902;
+        background-color: #f14902;
+        color: #1e1e1e;
+    }
+}
+.btn-allenamento{
+    background-color: #f14902;
+    color:#1e1e1e;
+    &:hover{
+        background-color: #f14902;
+        color:#f6e7d8;
+    }
+}
+
+.input-bg{
+    background-color: #f6e7d8;
+    color: #1e1e1e;
+}
+
+.aggiungi-button{
+    padding: 10px 15px;
+    background-color: #f6e7d8;
+    color: #1e1e1e;
+    border: 2px solid black ;
+    border-radius: 8px;
+    &:hover{
+        border: 2px solid black;
+        background-color: #1e1e1e;
+        color: #f6e7d8;
+    }
+}
+
+label{
+    font-size: 18px;
+}
+

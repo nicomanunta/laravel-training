@@ -10,18 +10,28 @@
             </div>
             @foreach ($trainings as $training)
                 <div class="col-3 mb-5">
-                    <a href="{{ route('admin.trainings.show', ['training'=>$training->id])}}">
-
-                        <div class="card cards mt-5" style="width: 18rem;">
+                    
+                    <div class="card cards bg-color-black mt-5" style="width: 18rem;">
+                        <a class=" text-decoration-none" href="{{ route('admin.trainings.show', ['training'=>$training->id])}}">
                             <img src="logo2.jpeg" class="card-img-top" alt="...">
                             <div class="card-body card-training">
-                                <h5 class="card-title title-training">{{$training->title}}</h5>
-                                <p class="card-text text-training">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a class="" href="{{route('admin.trainings.edit', ['training'=>$training->id])}}"><button class="edit-button mt-3"><i class="fa-solid fa-pen"></i></button></a>
-                                
+                                <h3 class="card-title title-training">{{$training->title}}</h3>
+                                <h4 class="card-text text-training mt-3">Durata di
+                                    @if ($training->duration_weeks > 1)
+                                        {{$training->duration_weeks}} settimane
+                                    @else
+                                        {{$training->duration_weeks}} settimana
+                                    @endif
+                                </h4>
                             </div>
+                        </a>
+                        <div class="text-end m-3">
+                            <a class="" href="{{route('admin.trainings.edit', ['training'=>$training->id])}}"><button class="edit-button "><i class="fa-solid fa-pen"></i></button></a>
+                            <button class="ms-1 edit-button " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $training->id }}"><i class="fa-regular fa-trash-can"></i></button>
+                            
                         </div>
-                    </a>
+                        @include('admin.trainings.partials.modal_delete')
+                    </div>
                 </div>
             @endforeach
         </div>

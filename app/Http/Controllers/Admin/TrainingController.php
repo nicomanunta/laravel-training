@@ -131,6 +131,8 @@ class TrainingController extends Controller
      */
     public function destroy(Training $training)
     {
-        //
+        $training->delete();
+
+        return redirect()->route('admin.trainings.index')->with('success', 'Allenamento eliminato con successo');
     }
 }
