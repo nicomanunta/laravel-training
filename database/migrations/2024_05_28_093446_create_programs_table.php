@@ -19,7 +19,9 @@ return new class extends Migration
             $table->foreign('training_id')->references('id')->on('trainings')->onDelete('cascade');
             $table->integer('week_number')->nullable();
             $table->enum('day_of_week', ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'])->nullable();
+            $table->string('subtitle', 150)->nullable();
             $table->text('description')->nullable();
+            // $table->boolean('completed')->default('false');
             $table->timestamps();
         });
     }

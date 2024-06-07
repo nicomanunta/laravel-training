@@ -63,9 +63,18 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group mb-3">
+                                <label for="programs[0][subtitle]">Nome del programma giornaliero</label>
+                                <input type="text" class="form-control" name="programs[0][subtitle]" id="programs[0][subtitle]" placeholder="Programma giornaliero" value="{{ old('programs[0][subtitle]') }}">
+                                @error('programs[0][subtitle]')
+                                    <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                            
+
                             <div class="form-group mb-5">
                                 <label for="programs[0][description]">Descrizione</label>
-                                <textarea name="programs[0][description]" class="form-control">{{ old('programs[0][description]') }}</textarea>
+                                <textarea wrap="soft" name="programs[0][description]" class="form-control">{{ old('programs[0][description]') }}</textarea>
                                 @error('programs[0][description]')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -118,6 +127,13 @@
                         </select>
                         @error('programs[${programIndex}][day_of_week]')
                             <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="programs[${programIndex}][subtitle]">Nome del programma giornaliero</label>
+                        <input type="text" class="form-control" name="programs[${programIndex}][subtitle]" id="programs[${programIndex}][subtitle]" placeholder="Programma giornaliero" value="{{ old('programs[${programIndex}][subtitle]') }}">
+                        @error('programs[${programIndex}][subtitle]')
+                            <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
         

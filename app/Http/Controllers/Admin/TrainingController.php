@@ -61,6 +61,7 @@ class TrainingController extends Controller
             $program = new Program();
             $program->week_number = $program_data['week_number'];
             $program->day_of_week = $program_data['day_of_week'];
+            $program->subtitle = $program_data['subtitle'];
             $program->description = $program_data['description'];
             $training->programs()->save($program); // Collega il programma al piano di allenamento
         }
@@ -114,6 +115,7 @@ class TrainingController extends Controller
             $program = new Program();
             $program->week_number = $program_data['week_number'];
             $program->day_of_week = $program_data['day_of_week'];
+            $program->subtitle = $program_data['subtitle'];
             $program->description = $program_data['description'];
             $training->programs()->save($program); // Collega il programma al training
         }

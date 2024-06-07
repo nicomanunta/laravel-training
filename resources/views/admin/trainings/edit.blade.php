@@ -59,6 +59,14 @@
                                     @enderror
                                 </div>
 
+                                <div class="form-group mb-3">
+                                    <label for="programs[{{ $index }}][subtitle]">Nome del programma giornaliero</label>
+                                    <input type="text" class="form-control" name="programs[{{ $index }}][subtitle]" id="programs[{{ $index }}][subtitle]" placeholder="Programma giornaliero" value="{{  old('programs.' . $index . '.subtitle', $program->subtitle) }}">
+                                    @error('programs.' . $index . '.subtitle')
+                                        <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                </div>
+
                                 <div class="form-group mb-5">
                                     <label for="programs[{{ $index }}][description]">Descrizione</label>
                                     <textarea wrap="soft" name="programs[{{ $index }}][description]" class="form-control">{{ old('programs.' . $index . '.description', $program->description) }}</textarea>
@@ -111,6 +119,14 @@
                         </select>
                         @error('programs[${programIndex}][day_of_week]')
                             <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="programs[${programIndex}][subtitle]">Nome del programma giornaliero</label>
+                        <input type="text" class="form-control" name="programs[${programIndex}][subtitle]" id="programs[${programIndex}][subtitle]" placeholder="Programma giornaliero" value="{{ old('programs[${programIndex}][subtitle]') }}">
+                        @error('programs[${programIndex}][subtitle]')
+                            <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
         

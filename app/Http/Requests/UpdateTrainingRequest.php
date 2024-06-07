@@ -29,6 +29,7 @@ class UpdateTrainingRequest extends FormRequest
             'notes' => 'nullable|string',
             'programs.*.week_number' => 'required|integer|min:1',
             'programs.*.day_of_week' => 'required|string|in:Lunedì,Martedì,Mercoledì,Giovedì,Venerdì,Sabato,Domenica',
+            'programs.*.subtitle' => 'nullable|string',
             'programs.*.description' => 'nullable|string',
 
         ];
@@ -49,6 +50,7 @@ class UpdateTrainingRequest extends FormRequest
             'programs.*.day_of_week.required' => 'Il giorno della settimana è obbligatorio per tutti i programmi giornalieri.',
             'programs.*.day_of_week.string' => 'Il giorno della settimana deve essere una stringa per tutti i programmi giornalieri.',
             'programs.*.day_of_week.in' => 'Il giorno della settimana deve essere uno dei seguenti: Lunedì, Martedì, Mercoledì, Giovedì, Venerdì, Sabato, Domenica per tutti i programmi giornalieri.',
+            'programs.*.subtitle.string' => 'Il nome del programma deve essere un testo.',
             'programs.*.description.string' => 'La descrizione deve essere un testo.',
 
             
