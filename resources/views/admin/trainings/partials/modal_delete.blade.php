@@ -12,7 +12,7 @@
         </div>
         
         <div class="modal-footer">
-            <button type="button" class="btn btn-modal-chiudi" data-bs-dismiss="modal">Chiudi</button>
+            <button type="button" class="btn aggiungi-button" data-bs-dismiss="modal">Chiudi</button>
                 <form action="{{route('admin.trainings.destroy', ['training'=> $training->id])}}" method="post">
                 @csrf
                 @method('DELETE')

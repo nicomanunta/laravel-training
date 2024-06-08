@@ -10,14 +10,11 @@
     font-weight: weight;
     font-style: normal;
 }
-.login{
-    font-size: 40px;
-}
 
-.bg-image{
-    background-image: url();
-    background-repeat: no-repeat;
-    background-size:contain;
+
+.bg-welcome{
+   min-height: 100vh;
+   max-height: 100vh;
 }
 
 .ingrandire-link{
@@ -34,6 +31,7 @@
     color: #f6e7d8;
     font-size: 20px;
     &:hover{
+        transition: color 0.3s;
         color: #f14902;
     }
 }
@@ -141,6 +139,7 @@ h1{
     background-color: #f6e7d8;
 }
 .btn-modal-chiudi{
+    padding: 10px 15px;
     background-color: #1e1e1e;
     color:#f6e7d8;
     &:hover{
@@ -149,11 +148,12 @@ h1{
     }
 }
 .btn-modal-elimina{
+    padding: 10px 15px;
     background-color: #f14902;
     color: #1e1e1e;
     &:hover{
-        background-color: #f14902;
-        color:#f6e7d8;
+        background-color: #1e1e1e;
+        color: #f14902;
     }
 }
 .fa-trash-can{
@@ -164,22 +164,25 @@ h1{
 
 .salva-button{
     padding: 10px 15px;
-    background-color: #1e1e1e;
-    color: #f6e7d8;
-    border: 2px solid black ;
+    background-color: #f14902;
+    color: #1e1e1e;
+    border: 2px solid #f14902 ;
     border-radius: 8px;
     &:hover{
-        border: 2px solid #f14902;
-        background-color: #f14902;
-        color: #1e1e1e;
+        border: 2px solid #1e1e1e;
+        background-color: #1e1e1e;
+        color: #f14902;
     }
 }
 .btn-allenamento{
+    padding: 10px 15px;
     background-color: #f14902;
+    border: 2px solid #1e1e1e;
     color:#1e1e1e;
     &:hover{
-        background-color: #f14902;
-        color:#f6e7d8;
+        border: 2px solid #f14902;
+        background-color: #1e1e1e;
+        color: #f14902;
     }
 }
 
@@ -195,7 +198,7 @@ h1{
     border: 2px solid black ;
     border-radius: 8px;
     &:hover{
-        border: 2px solid black;
+        border: 2px solid #f6e7d8;
         background-color: #1e1e1e;
         color: #f6e7d8;
     }
@@ -203,5 +206,62 @@ h1{
 
 label{
     font-size: 18px;
+}
+
+
+
+
+.underline {
+    position: relative; /* Per posizionare il sottolineato relativo al link */
+    text-decoration: none; /* Rimuove il sottolineato predefinito */
+     
+  }
+
+  /* Stile per la linea sottolineata */
+  .underline::after {
+    content: ""; /* Aggiunge un elemento pseudo-contenuto per la linea */
+    position: absolute; /* Posizionamento assoluto rispetto al link */
+    left: 0; /* Inizialmente posizionato a sinistra del link */
+    bottom: -4px; /* Posizionato alla base del link */
+    width: 0; /* Inizialmente la larghezza della linea è zero */
+    height: 4px; /* Altezza della linea */
+    background-color: #f14902; /* Colore della linea */
+    transition: width 0.5s ease; /* Transizione per far espandere la linea */
+  }
+
+  /* Effetto hover: espande la linea */
+  .underline:hover::after {
+    width: 100%; /* Espandi la linea fino alla larghezza del link */
+  }
+
+  .underline-2 {
+    position: relative; /* Per posizionare il sottolineato relativo al link */
+    text-decoration: none; /* Rimuove il sottolineato predefinito */
+     
+  }
+
+  /* Stile per la linea sottolineata */
+  .underline-2::after {
+    content: ""; /* Aggiunge un elemento pseudo-contenuto per la linea */
+    position: absolute; /* Posizionamento assoluto rispetto al link */
+    left: 0; /* Inizialmente posizionato a sinistra del link */
+    bottom: -4px; /* Posizionato alla base del link */
+    width: 0; /* Inizialmente la larghezza della linea è zero */
+    height: 2px; /* Altezza della linea */
+    background-color: #f14902; /* Colore della linea */
+    transition: width 0.3s ease; /* Transizione per far espandere la linea */
+  }
+
+  /* Effetto hover: espande la linea */
+  .underline-2:hover::after {
+    width: 100%; /* Espandi la linea fino alla larghezza del link */
+    
+  }
+
+
+
+  .login{
+    font-size: 70px;
+   
 }
 

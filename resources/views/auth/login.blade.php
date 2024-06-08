@@ -4,8 +4,8 @@
 <div class=" container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Accedi') }}</div>
+            <div class="card bg-color-white">
+                <h2 class="card-header color-orange">{{ __('Accedi') }}</h2>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -43,7 +43,7 @@
 
                         <div class="mb-4 row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn salva-button">
                                     {{ __('Accedi') }}
                                 </button>
 

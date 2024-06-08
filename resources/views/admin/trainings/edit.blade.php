@@ -14,21 +14,21 @@
                     {{-- CAMPI TABELLA TRAININGS --}}
                     <div class="form-group mb-3">
                         <label class="color-white mb-2" for="title">Dai un titolo al tuo allenamento</label>
-                        <input type="text" class="form-control" name="title" id="title" placeholder="Allenamento" value="{{ old('title', $training->title) }}">
+                        <input type="text" class="form-control input-bg" name="title" id="title" placeholder="Allenamento" value="{{ old('title', $training->title) }}">
                         @error('title')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group mb-3">
                         <label class="color-white mb-2" for="duration_weeks">Quante settimane dura?</label>
-                        <input type="number" class="form-control" name="duration_weeks" id="duration_weeks" placeholder="Numero delle settimane" value="{{ old('duration_weeks', $training->duration_weeks) }}">
+                        <input type="number" class="form-control input-bg" name="duration_weeks" id="duration_weeks" placeholder="Durata dell'allenamento" value="{{ old('duration_weeks', $training->duration_weeks) }}">
                         @error('duration_weeks')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label class="color-white mb-2" for="notes">Note</label>
-                        <textarea wrap="soft" name="notes" id="notes" class="form-control">{{ old('notes', $training->notes) }}</textarea>
+                        <textarea wrap="soft" name="notes" id="notes" class="form-control input-bg">{{ old('notes', $training->notes) }}</textarea>
                         @error('notes')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -41,7 +41,7 @@
                             <div class="program">
                                 <div class="form-group mb-3">
                                     <label class="color-white mb-2" for="programs[{{ $index }}][week_number]">Numero della settimana</label>
-                                    <input type="number" name="programs[{{ $index }}][week_number]" class="form-control" value="{{ old('programs.' . $index . '.week_number', $program->week_number) }}" required>
+                                    <input type="number" name="programs[{{ $index }}][week_number]" class="form-control input-bg" value="{{ old('programs.' . $index . '.week_number', $program->week_number) }}" placeholder="Numero della settimana" required>
                                     @error('programs.' . $index . '.week_number')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -49,7 +49,7 @@
 
                                 <div class="form-group mb-3">
                                     <label class="color-white mb-2" for="programs[{{ $index }}][day_of_week]">Giorno della settimana</label>
-                                    <select name="programs[{{ $index }}][day_of_week]" class="form-control" required>
+                                    <select name="programs[{{ $index }}][day_of_week]" class="form-control input-bg" required>
                                         <option value="">Seleziona un giorno</option>
                                         @foreach (['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'] as $day)
                                             <option value="{{ $day }}" {{ old('programs.' . $index . '.day_of_week', $program->day_of_week) == $day ? 'selected' : '' }}>{{ $day }}</option>
@@ -62,7 +62,7 @@
 
                                 <div class="form-group mb-3">
                                     <label class="color-white mb-2" for="programs[{{ $index }}][subtitle]">Nome del programma giornaliero</label>
-                                    <input type="text" class="form-control" name="programs[{{ $index }}][subtitle]" id="programs[{{ $index }}][subtitle]" placeholder="Programma giornaliero" value="{{  old('programs.' . $index . '.subtitle', $program->subtitle) }}">
+                                    <input type="text" class="form-control input-bg" name="programs[{{ $index }}][subtitle]" id="programs[{{ $index }}][subtitle]" placeholder="Programma giornaliero" value="{{  old('programs.' . $index . '.subtitle', $program->subtitle) }}">
                                     @error('programs.' . $index . '.subtitle')
                                         <div class="text-danger">{{$message}}</div>
                                     @enderror
@@ -70,7 +70,7 @@
 
                                 <div class="form-group mb-5">
                                     <label class="color-white mb-2" for="programs[{{ $index }}][description]">Descrizione</label>
-                                    <textarea wrap="soft" name="programs[{{ $index }}][description]" class="form-control">{{ old('programs.' . $index . '.description', $program->description) }}</textarea>
+                                    <textarea wrap="soft" name="programs[{{ $index }}][description]" class="form-control input-bg">{{ old('programs.' . $index . '.description', $program->description) }}</textarea>
                                     @error('programs.' . $index . '.description')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -80,7 +80,7 @@
                     </div>
                     
                     <div class="form-group mb-5">
-                        <button type="button" id="add-program-button" class="btn edit-button ">Aggiungi Programma</button>
+                        <button type="button" id="add-program-button" class="btn aggiungi-button ">Aggiungi Programma</button>
                         <button type="submit" class="btn btn-allenamento ">Salva Allenamento</button>
                     </div>
                 </form>
@@ -101,7 +101,7 @@
                 newProgram.innerHTML = `
                     <div class="form-group mb-3">
                         <label class="color-white mb-2" for="programs[${programIndex}][week_number]">Numero della settimana</label>
-                        <input type="number" name="programs[${programIndex}][week_number]" class="form-control" required>
+                        <input type="number" name="programs[${programIndex}][week_number]" class="form-control input-bg" required>
                         @error('programs[${programIndex}][week_number]')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -109,7 +109,7 @@
         
                     <div class="form-group mb-3">
                         <label class="color-white mb-2" for="programs[${programIndex}][day_of_week]">Giorno della settimana</label>
-                        <select name="programs[${programIndex}][day_of_week]" class="form-control" required>
+                        <select name="programs[${programIndex}][day_of_week]" class="form-control input-bg" required>
                             <option value="">Seleziona un giorno</option>
                             <option value="Lunedì">Lunedì</option>
                             <option value="Martedì">Martedì</option>
@@ -126,7 +126,7 @@
 
                     <div class="form-group mb-3">
                         <label class="color-white mb-2" for="programs[${programIndex}][subtitle]">Nome del programma giornaliero</label>
-                        <input type="text" class="form-control" name="programs[${programIndex}][subtitle]" id="programs[${programIndex}][subtitle]" placeholder="Programma giornaliero" value="{{ old('programs[${programIndex}][subtitle]') }}">
+                        <input type="text" class="form-control input-bg" name="programs[${programIndex}][subtitle]" id="programs[${programIndex}][subtitle]" placeholder="Programma giornaliero" value="{{ old('programs[${programIndex}][subtitle]') }}">
                         @error('programs[${programIndex}][subtitle]')
                             <div class="text-danger">{{$message}}</div>
                         @enderror
@@ -134,7 +134,7 @@
         
                     <div class="form-group mb-5">
                         <label class="color-white mb-2" for="programs[${programIndex}][description]">Descrizione</label>
-                        <textarea wrap="soft" name="programs[${programIndex}][description]" class="form-control"></textarea>
+                        <textarea wrap="soft" name="programs[${programIndex}][description]" class="form-control input-bg"></textarea>
                         @error('programs[${programIndex}][description]')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

@@ -24,7 +24,7 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-color-black">
     <div id="app ">
 
 
@@ -45,7 +45,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link color" href="{{url('/trainings') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" href="{{url('/trainings') }}"><span class="underline-2 color">{{ __('Home') }}</span></a>
                         </li>
                     </ul>
 
@@ -54,11 +54,11 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link color" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}"><span class="underline-2 color">{{ __('Accedi') }}</span></a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link color" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}"><span class="underline-2 color">{{ __('Registrati') }}</span></a>
                         </li>
                         @endif
                         @else
@@ -67,10 +67,10 @@
             
                             <div class="" aria-labelledby="">
                                 
-                                <a class="nav-link d-inline color" href="{{ url('profile') }}">{{__('Modifica dati profilo')}}</a>
-                                <a class="nav-link d-inline color" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="nav-link d-inline" href="{{ url('profile') }}"><span class="underline-2 color">{{ __('Modifica profilo') }}</span></a>
+                                <a class="nav-link d-inline" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    <span class="underline-2 color">{{ __('Logout') }}</span>
                                 </a>
                     
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
