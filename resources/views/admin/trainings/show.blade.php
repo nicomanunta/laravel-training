@@ -61,6 +61,13 @@
         @if ($currentWeekNumber !== null)
             </div> <!-- Chiude col-6 -->
         @endif
+        <div class="text-end mt-5 ">
+            
+            <a class=" " href="{{route('admin.trainings.edit', ['training'=>$training->id])}}"><button class="edit-button">Modifica</button></a>
+            <button class="ms-1 edit-button " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $training->id }}">Elimina</button>
+            @include('admin.trainings.partials.modal_delete')
+
+        </div>
     </div>
 </div>
 @endsection
