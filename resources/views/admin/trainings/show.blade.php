@@ -1,6 +1,9 @@
 @extends('layouts.style')
 
 @section('content')
+
+
+
 <div class="height-minima pt-4 bg-logo pb-5">
     <div class="container">
         <div class="position-relative">
@@ -9,11 +12,44 @@
                 <a class=" " href="{{route('admin.trainings.index')}}"><button class="edit-button">Home</button></a>
                 <a class=" " href="{{route('admin.trainings.edit', ['training'=>$training->id])}}"><button class="edit-button">Modifica</button></a>
                 <button class="ms-1 edit-button " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $training->id }}">Elimina</button>
-                @include('admin.trainings.partials.modal_delete')
-
+                @include('admin.trainings.partials.modal_delete')            
             </div>
+           
+            @php
+                $weekNumbers = [];
+                foreach ($programs as $program) {
+                    if (!in_array($program->week_number, $weekNumbers)) {
+                        $weekNumbers[] = $program->week_number;
+                    }
+                }
+                $weekGroups = array_chunk($weekNumbers, 5);
+            @endphp
+            <div class="position-absolute position-right">
+                <div id="week-buttons-container">
+                    @foreach ($weekGroups as $index => $weekGroup)
+                        <div class="week-group text-end" data-group="{{ $index }}" style="display: {{ $index === 0 ? 'block' : 'none' }}">
+                            @foreach ($weekGroup as $weekNumber)
+                                <a class="text-decoration-none" href="#settimana-{{$weekNumber}}">
+                                    <button class="list-number color-black">
+                                        <strong>{{$weekNumber}}</strong>
+                                    </button>
+                                </a>
+                            @endforeach
+                        </div>
+                    @endforeach
+                </div>
+                <div class="d-inline">
+
+                    <button class="next-prev prev me-2" id="prev-group" style="display: none;">&lt; </button>
+                    <button class="next-prev next ms-2" id="next-group" style="display: {{ count($weekGroups) > 1 ? 'inline' : 'none' }};"> &gt;</button>
+                </div>
+            </div>
+            
 
         </div>
+        @php
+            $currentWeekNumber = null;
+        @endphp
         <h2 class="durata text-center color-white text-uppercase">
             durata di
             @if ($training->duration_weeks > 1)
@@ -23,9 +59,6 @@
             @endif
         </h2>
         
-        @php
-            $currentWeekNumber = null;
-        @endphp
         <div class="row">
             
                 @foreach ($programs as $program)
@@ -36,7 +69,7 @@
                         <div class="col-6">
                             <div class="row mb-3 mt-5 "> <!-- Apre una nuova riga per la nuova settimana -->
                                 <div class="col-12">
-                                    <h3 class="color-orange mb-3">Settimana {{$program->week_number}}</h3> <!-- Stampa il numero della settimana -->
+                                    <h3 id="settimana-{{$program->week_number}}" class="color-orange mb-3">Settimana {{$program->week_number}}</h3> <!-- Stampa il numero della settimana -->
                                 </div>
                             </div>
                             
@@ -70,6 +103,37 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let currentGroup = 0;
+        const totalGroups = {{ count($weekGroups) }};
+        
+        const showGroup = (groupIndex) => {
+            document.querySelectorAll('.week-group').forEach((group, index) => {
+                group.style.display = index === groupIndex ? 'block' : 'none';
+            });
+            document.getElementById('prev-group').style.display = groupIndex === 0 ? 'none' : 'inline';
+            document.getElementById('next-group').style.display = groupIndex === totalGroups - 1 ? 'none' : 'inline';
+        };
+    
+        document.getElementById('prev-group').addEventListener('click', () => {
+            if (currentGroup > 0) {
+                currentGroup--;
+                showGroup(currentGroup);
+            }
+        });
+    
+        document.getElementById('next-group').addEventListener('click', () => {
+            if (currentGroup < totalGroups - 1) {
+                currentGroup++;
+                showGroup(currentGroup);
+            }
+        });
+    
+        showGroup(currentGroup);
+    });
+    </script>
 @endsection
 
 

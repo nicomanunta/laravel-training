@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mt-3">
-                <h1 class="text-uppercase text-center color-white">i tuoi allenamenti</h1>
+                <h1 class="text-uppercase text-center color-white">i tuoi piani di allenamento</h1>
                 <a href="{{route('admin.trainings.create')}}"><button class="create-button ">Nuovo Allenamento</button></a>
             </div>
             @foreach ($trainings as $training)

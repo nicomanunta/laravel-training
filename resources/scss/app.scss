@@ -126,6 +126,10 @@ h1{
 .position-top{
     top: 50px;
 }
+.position-right{
+    top: 50px;
+    right: 0px;
+}
 .card-day{
     background-color: #f6e7d8;
 }
@@ -260,8 +264,44 @@ label{
 
 
 
-  .login{
+.login{
     font-size: 70px;
    
 }
+
+.list-number{
+    padding: 11px 18px;
+    margin-right: 5px;
+    border-radius: 50%;
+    
+    background-color: #f6e7d8;
+    border: 0px;
+    &:hover{
+        background-color: #f14902;
+    }
+}
+.next-prev{
+    color: #f6e7d8;
+    border: 0;
+    background-color: transparent;
+    font-size: 25px;
+    margin-top: 5px;
+    
+    &:hover{
+        color: #f14902;
+    }
+}
+
+.next{
+    top: 0px;
+    position: absolute;
+    right: -10px;
+}
+.prev{
+    top: 0px;
+    position: absolute;
+    left: -15px;
+}
+
+
 
