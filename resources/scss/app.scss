@@ -80,6 +80,7 @@ h1{
         color: #1e1e1e;
     }
 }
+
 .edit-button{
     padding: 7px 11px;
     background-color: #f6e7d8;
@@ -89,9 +90,10 @@ h1{
     &:hover{
         border: 2px solid black;
         background-color: #f14902;
-        color: #1e1e1e;
+        color: #f6e7d8;
     }
 }
+
 
 
 // COLORI
@@ -278,6 +280,7 @@ label{
     border: 0px;
     &:hover{
         background-color: #f14902;
+        color: #f6e7d8;
     }
 }
 .next-prev{
@@ -302,6 +305,8 @@ label{
     position: absolute;
     left: -15px;
 }
+
+
 
 
 

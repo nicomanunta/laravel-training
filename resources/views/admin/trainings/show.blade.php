@@ -9,7 +9,7 @@
         <div class="position-relative">
             <h1 class="text-center color-orange text-uppercase">{{$training->title}}</h1>
             <div class="position-absolute position-top">
-                <a class=" " href="{{route('admin.trainings.index')}}"><button class="edit-button">Home</button></a>
+                <a class="me-4 " href="{{route('admin.trainings.index')}}"><button class="edit-button">Home</button></a>
                 <a class=" " href="{{route('admin.trainings.edit', ['training'=>$training->id])}}"><button class="edit-button">Modifica</button></a>
                 <button class="ms-1 edit-button " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $training->id }}">Elimina</button>
                 @include('admin.trainings.partials.modal_delete')            

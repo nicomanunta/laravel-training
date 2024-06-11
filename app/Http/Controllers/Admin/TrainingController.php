@@ -23,7 +23,7 @@ class TrainingController extends Controller
      */
     public function index()
     {
-        $trainings = Training::all();
+        $trainings = Training::where('user_id', auth()->id())->get();
        
         return view('admin.trainings.index', compact('trainings'));
     }
