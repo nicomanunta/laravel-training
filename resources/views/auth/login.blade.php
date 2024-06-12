@@ -42,7 +42,7 @@
                         
 
                         <div class="mb-4 row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 offset-md-4 text-md-start text-end">
                                 <button type="submit" class="btn salva-button">
                                     {{ __('Accedi') }}
                                 </button>

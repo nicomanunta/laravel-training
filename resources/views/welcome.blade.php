@@ -60,12 +60,12 @@
 
                     
                     <li class="nav-item mb-3">
-                        <a class="text-decoration-none color-white " href="{{ route('login') }}"><button class="login underline responsive-button text-uppercase">{{ __('Accedi') }}</button></a>
+                        <a class="text-decoration-none color-white " href="{{ route('login') }}"><button class="login  responsive-button text-uppercase">{{ __('Accedi') }}</button></a>
                     </li>
                     
                     @if (Route::has('register'))
                     <li class="nav-item mt-3">
-                        <a class="text-decoration-none color-white " href="{{ route('register') }}"><button class="login underline responsive-button text-uppercase">{{ __('Registrati') }}</button></a>
+                        <a class="text-decoration-none color-white " href="{{ route('register') }}"><button class="login  responsive-button text-uppercase">{{ __('Registrati') }}</button></a>
                     </li>
                     @endif
                     @else

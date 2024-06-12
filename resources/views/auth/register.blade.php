@@ -4,7 +4,7 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card bg-color-white">
+            <div class="card bg-color-white pb-md-0 mb-5">
                 <h2 class="card-header color-orange">{{ __('Registrati') }}</h2>
 
                 <div class="card-body">
@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="mb-4 row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-4 text-md-start text-end">
                                 <button type="submit" class="btn salva-button">
                                     {{ __('Registrati') }}
                                 </button>
