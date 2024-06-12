@@ -268,8 +268,10 @@ label{
 
 .login{
     font-size: 70px;
+
    
 }
+
 
 .list-number{
     padding: 11px 18px;
@@ -305,6 +307,26 @@ label{
     position: absolute;
     left: -15px;
 }
+
+
+
+// RESPONSIVE 
+
+@media only screen and (max-width: 768px) {
+    .login {
+      font-size: 40px;
+    }
+    h1{
+        font-size: 40px;
+    }
+    .responsive-button{
+        padding: 5px 14px;
+        background-color: #f14902;
+        color: #f6e7d8;
+        border: 2px solid #f6e7d8;
+        border-radius: 15px;
+    }
+  }
 
 
 
