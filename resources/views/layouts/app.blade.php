@@ -36,8 +36,9 @@
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
+                
 
-                <button class="hamburger-button me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="d-md-none hamburger-button me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class=""><i class="fa-solid fa-bars color-white" style="font-size: 30px"></i></span>
                 </button>
 

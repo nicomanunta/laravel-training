@@ -4,7 +4,7 @@
 <div class="bg-orange vh-100">
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-3 text-center">
+            <div class="col-12 mt-3 text-center text-md-start">
                 <h1 class="text-uppercase text-center color-white">i tuoi piani di allenamento</h1>
                 <a class="" href="{{route('admin.trainings.create')}}"><button class="mt-md-0 mt-3 create-button ">Nuovo Allenamento</button></a>
             </div>
@@ -24,6 +24,7 @@
                                     @endif
                                 </h4>
                             </div>
+                            
                         </a>
                         <div class="text-end m-3">
                             <a class="" href="{{route('admin.trainings.edit', ['training'=>$training->id])}}"><button class="edit-button "><i class="fa-solid fa-pen"></i></button></a>
