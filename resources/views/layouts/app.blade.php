@@ -31,14 +31,14 @@
         <nav class="navbar navbar-expand-md navbar-light bg-logo shadow-sm ">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center width-link-logo" href="{{ url('/trainings') }}">
-                    <div class="">
+                    <div class="text-start">
                         <img class="logo" src="logo.jpeg" alt="">
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="hamburger-button me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class=""><i class="fa-solid fa-bars color-white" style="font-size: 30px"></i></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -67,8 +67,8 @@
             
                             <div class="" aria-labelledby="">
                                 
-                                <a class="nav-link d-inline" href="{{ url('profile') }}"><span class="underline-2 color">{{ __('Modifica profilo') }}</span></a>
-                                <a class="nav-link d-inline" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="nav-link d-md-inline" href="{{ url('profile') }}"><span class="underline-2 color">{{ __('Modifica profilo') }}</span></a>
+                                <a class="nav-link d-md-inline" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     <span class="underline-2 color">{{ __('Logout') }}</span>
                                 </a>

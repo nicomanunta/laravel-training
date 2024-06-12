@@ -308,7 +308,13 @@ label{
     left: -15px;
 }
 
-
+.card-width{
+    width: 18rem;
+}
+.hamburger-button{
+    background-color: transparent;
+    border: 0;
+}
 
 // RESPONSIVE 
 
@@ -326,8 +332,17 @@ label{
         border: 2px solid #f6e7d8;
         border-radius: 15px;
     }
+    
+    .width-link-logo{
+        width:80%;
+        margin-right: 0px;
+    }
     .logo{
-        width: 350%;
+        width: 60%;
+    }
+    .card-width{
+        width: 100%;
+        
     }
   }
 

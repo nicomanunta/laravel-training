@@ -4,14 +4,14 @@
 <div class="bg-orange vh-100">
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-3">
+            <div class="col-12 mt-3 text-center">
                 <h1 class="text-uppercase text-center color-white">i tuoi piani di allenamento</h1>
-                <a href="{{route('admin.trainings.create')}}"><button class="create-button ">Nuovo Allenamento</button></a>
+                <a class="" href="{{route('admin.trainings.create')}}"><button class="mt-md-0 mt-3 create-button ">Nuovo Allenamento</button></a>
             </div>
             @foreach ($trainings as $training)
-                <div class="col-3 mb-5">
+                <div class="col-12 col-md-3 mb-md-5">
                     
-                    <div class="card cards bg-color-black mt-5" style="width: 18rem;">
+                    <div class="card-width card cards bg-color-black mt-5" >
                         <a class=" text-decoration-none" href="{{ route('admin.trainings.show', ['training'=>$training->id])}}">
                             <img src="logo2.jpeg" class="card-img-top" alt="...">
                             <div class="card-body card-training">
