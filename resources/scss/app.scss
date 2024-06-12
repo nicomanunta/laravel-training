@@ -129,8 +129,9 @@ h1{
     top: 50px;
 }
 .position-right{
-    top: 50px;
-    right: 0px;
+    top: 70px;
+    right: 75px;
+    position: absolute;
 }
 .card-day{
     background-color: #f6e7d8;
@@ -344,6 +345,23 @@ label{
         width: 100%;
         
     }
+    .durata{
+        font-size: 35px;
+    }
+    .position-right{
+        position: relative;
+       top: 0;
+       bottom: 0;
+       right: 0;
+       left: 0;
+    }
+    .prev{
+        margin-left: 10px;
+    }
+    .next{
+        margin-right: 5px;
+    }
+   
   }
 
 

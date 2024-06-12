@@ -8,12 +8,13 @@
     <div class="container">
         <div class="position-relative">
             <h1 class="text-center color-orange text-uppercase">{{$training->title}}</h1>
-            <div class="position-absolute position-top">
+            <div class="position-absolute d-none d-md-block position-top">
                 <a class="me-4 " href="{{route('admin.trainings.index')}}"><button class="edit-button">Home</button></a>
                 <a class=" " href="{{route('admin.trainings.edit', ['training'=>$training->id])}}"><button class="edit-button">Modifica</button></a>
                 <button class="ms-1 edit-button " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $training->id }}">Elimina</button>
                 @include('admin.trainings.partials.modal_delete')            
             </div>
+            
            
             @php
                 $weekNumbers = [];
@@ -24,26 +25,9 @@
                 }
                 $weekGroups = array_chunk($weekNumbers, 5);
             @endphp
-            <div class="position-absolute position-right">
-                <div id="week-buttons-container">
-                    @foreach ($weekGroups as $index => $weekGroup)
-                        <div class="week-group text-end" data-group="{{ $index }}" style="display: {{ $index === 0 ? 'block' : 'none' }}">
-                            @foreach ($weekGroup as $weekNumber)
-                                <a class="text-decoration-none" href="#settimana-{{$weekNumber}}">
-                                    <button class="list-number color-black">
-                                        <strong>{{$weekNumber}}</strong>
-                                    </button>
-                                </a>
-                            @endforeach
-                        </div>
-                    @endforeach
-                </div>
-                <div class="d-inline">
+            
 
-                    <button class="next-prev prev me-2" id="prev-group" style="display: none;">&lt; </button>
-                    <button class="next-prev next ms-2" id="next-group" style="display: {{ count($weekGroups) > 1 ? 'inline' : 'none' }};"> &gt;</button>
-                </div>
-            </div>
+           
             
 
         </div>
@@ -58,6 +42,34 @@
                 {{$training->duration_weeks}} settimana
             @endif
         </h2>
+        <div class="d-md-none text-center mt-4">
+            <a class="" href="{{route('admin.trainings.index')}}"><button class="edit-button">Home</button></a>
+            <a class=" " href="{{route('admin.trainings.edit', ['training'=>$training->id])}}"><button class="edit-button">Modifica</button></a>
+            <button class="ms-1 edit-button " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $training->id }}">Elimina</button>
+            @include('admin.trainings.partials.modal_delete')            
+        </div>
+
+        <div class="position-right mt-md-0 mt-4">
+            <div id="week-buttons-container">
+                @foreach ($weekGroups as $index => $weekGroup)
+                    <div class="week-group text-md-end text-center " data-group="{{ $index }}" style="display: {{ $index === 0 ? 'block' : 'none' }}">
+                        @foreach ($weekGroup as $weekNumber)
+                            <a class="text-decoration-none" href="#settimana-{{$weekNumber}}">
+                                <button class="list-number color-black">
+                                    <strong>{{$weekNumber}}</strong>
+                                </button>
+                            </a>
+                        @endforeach
+                    </div>
+                @endforeach
+            </div>
+            <div class="d-inline">
+
+                <button class="next-prev prev me-2" id="prev-group" style="display: none;">&lt; </button>
+                <button class="next-prev next ms-2" id="next-group" style="display: {{ count($weekGroups) > 1 ? 'inline' : 'none' }};"> &gt;</button>
+            </div>
+        </div>
+        
         
         <div class="row">
             
@@ -66,7 +78,7 @@
                     @if ($currentWeekNumber !== null)
                         </div> <!-- Chiude la riga precedente se non è la prima iterazione -->
                     @endif
-                        <div class="col-6">
+                        <div class="col-md-6 col-12">
                             <div class="row mb-3 mt-5 "> <!-- Apre una nuova riga per la nuova settimana -->
                                 <div class="col-12">
                                     <h3 id="settimana-{{$program->week_number}}" class="color-orange mb-3">Settimana {{$program->week_number}}</h3> <!-- Stampa il numero della settimana -->
