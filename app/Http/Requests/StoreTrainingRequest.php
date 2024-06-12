@@ -44,6 +44,7 @@ class StoreTrainingRequest extends FormRequest
             'duration_weeks.required' => "La durata in settimane è obbligatoria.",
             'duration_weeks.integer' => "La durata deve essere un numero intero.",
             'duration_weeks.min' => "La durata minima è di 1 settimana.",
+            'notes.string'=> "La nota deve essere un testo",
             'programs.*.week_number.required' => "Il numero della settimana è obbligatorio per tutti i programmi giornalieri.",
             'programs.*.week_number.integer' => 'Il numero della settimana deve essere un numero intero per tutti i programmi giornalieri.',
             'programs.*.week_number.min' => 'Il numero della settimana deve essere almeno 1 per tutti i programmi giornalieri.',

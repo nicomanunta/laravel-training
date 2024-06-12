@@ -34,6 +34,10 @@
                         @enderror
                     </div>
 
+                    <div class="form-group my-5">
+                        <button type="submit" class="btn btn-allenamento ">Salva Allenamento</button>
+                    </div>
+
                     {{-- CAMPI TABELLA PROGRAMS --}}
                     <h2 class="mt-5 mb-4 text-center color-orange">Modifica i programmi giornalieri</h2>
                     <div id="programs-container">

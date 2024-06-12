@@ -42,6 +42,7 @@
                 {{$training->duration_weeks}} settimana
             @endif
         </h2>
+
         <div class="d-md-none text-center mt-4">
             <a class="" href="{{route('admin.trainings.index')}}"><button class="edit-button">Home</button></a>
             <a class=" " href="{{route('admin.trainings.edit', ['training'=>$training->id])}}"><button class="edit-button">Modifica</button></a>
@@ -69,9 +70,19 @@
                 <button class="next-prev next ms-2" id="next-group" style="display: {{ count($weekGroups) > 1 ? 'inline' : 'none' }};"> &gt;</button>
             </div>
         </div>
-        
-        
+
+
         <div class="row">
+            @if ($training->notes !== null)
+                <div class="text-center text-md-start mt-3 mt-md-0">
+                    <button class="hamburger-button " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="color-white">Note <i class="fa-solid fa-caret-down"></i></span>
+                    </button>
+                    <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
+                        <span class="color-white ">{!! nl2br(e($training->notes)) !!}</span>
+                    </div>
+                </div>
+            @endif
             
                 @foreach ($programs as $program)
                     @if ($currentWeekNumber !== $program->week_number)
