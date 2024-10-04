@@ -19,13 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// homepage
 Route::get('/homepage', function () {
     return view('admin.trainings.index');
 })->middleware(['auth', 'verified'])->name('homepage');
 
 
 
-
+// gestione delle crud
 Route::middleware(['auth', 'verified'])->name('admin.')->group(function () {
     Route::resource('trainings', TrainingController::class);
 });

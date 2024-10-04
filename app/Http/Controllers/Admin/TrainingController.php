@@ -48,6 +48,7 @@ class TrainingController extends Controller
      */
     public function store(StoreTrainingRequest $request)
     {
+        // recupera dati dal form
         $form_data = $request->all();
         $training = new Training();
         $slug = Str::slug($form_data['title'], '-');
@@ -57,6 +58,7 @@ class TrainingController extends Controller
 
         $training->save();
 
+        // crea programmi associati all'allenamento
         foreach ($form_data['programs'] as $program_data) {
             $program = new Program();
             $program->week_number = $program_data['week_number'];
@@ -109,15 +111,15 @@ class TrainingController extends Controller
         $form_data['slug'] = $slug;
         $training->update($form_data);
 
-        // Aggiornamento dei programmi associati
-        $training->programs()->delete(); // Elimina i vecchi programmi
+        // aggiornamento dei programmi associati
+        $training->programs()->delete(); // elimina i vecchi programmi
         foreach ($form_data['programs'] as $program_data) {
             $program = new Program();
             $program->week_number = $program_data['week_number'];
             $program->day_of_week = $program_data['day_of_week'];
             $program->subtitle = $program_data['subtitle'];
             $program->description = $program_data['description'];
-            $training->programs()->save($program); // Collega il programma al training
+            $training->programs()->save($program); 
         }
 
         return redirect()->route('admin.trainings.index');

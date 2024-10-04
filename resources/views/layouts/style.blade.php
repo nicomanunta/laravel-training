@@ -28,7 +28,7 @@
     <div id="app ">
 
 
-       
+        
 
         <main class="">
             @yield('content')

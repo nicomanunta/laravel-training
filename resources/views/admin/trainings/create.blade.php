@@ -38,7 +38,7 @@
 
                     <h2 class="mt-5 mb-4 text-center color-orange">Aggiungi i programmi giornalieri</h2>
                     <div id="programs-container">
-                        <div class="program ">
+                        <div class="program">
                             <div class="form-group mb-3">
                                 <label class="mb-2 color-white" for="programs[0][week_number]">Numero della settimana</label>
                                 <input type="number" name="programs[0][week_number]" class="form-control input-bg" value="{{ old('programs[0][week_number]') }}" placeholder="Numero della settimana" required  >
